@@ -1,10 +1,26 @@
 ---
-DataValue
+DataValueInteger
 ---
-id: Integer [PK]
-data_point_id: Integer [FK]
-data_value_type_id: Integer [FK]
-value: String
+data_point_id Integer [FK]
+value: Integer
+
+---
+DataValueTime
+---
+data_point_id Integer [FK]
+value: Integer
+
+---
+DataValueCategorical
+---
+data_point_id Integer [FK]
+value: Integer
+
+---
+DataValueBoolean
+---
+data_point_id Integer [FK]
+value: Integer
 
 ---
 DataPoint
@@ -18,16 +34,17 @@ DataTracker
 id: Integer [PK]
 name: String [Unique]
 
+
+
+
 ---
-DataValueTypes
+DataTrackerConfigurationValueTypes
 ---
 id: Integer [PK]
 name: Integer [PK]
 
-
-
 ---
-DataTrackerConfiguration
+DataTrackerConfigurations
 ---
 id: Integer [PK]
 name: String [Unique]
@@ -36,4 +53,4 @@ name: String [Unique]
 DataTrackerConfigurationDataPoints
 ---
 id: Integer [PK]
-data_value_type_id: Integer [FK]
+data_tracker_configuration_value_types_id: Integer [FK]
