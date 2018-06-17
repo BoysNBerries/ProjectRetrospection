@@ -11,7 +11,7 @@ interface AbstractDataType {
     fun value(): Any
 }
 
-data class TimeDataType(private val _datetime: LocalDateTime) : AbstractDataType {
+class TimeDataType(private val _datetime: LocalDateTime) : AbstractDataType {
     override fun value(): LocalDateTime {
         return _datetime
     }
