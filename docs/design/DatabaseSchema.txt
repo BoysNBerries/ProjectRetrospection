@@ -8,24 +8,25 @@ value: Integer
 DataValueTime
 ---
 data_point_id Integer [FK]
-value: Integer
+value: DateTime
 
 ---
 DataValueCategorical
 ---
 data_point_id Integer [FK]
-value: Integer
+value: String
 
 ---
 DataValueBoolean
 ---
 data_point_id Integer [FK]
-value: Integer
+value: Boolean
 
 ---
 DataPoint
 ---
 id: Integer [PK]
+order: Integer
 tracker_id: Integer [FK]
 
 ---
