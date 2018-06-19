@@ -9,13 +9,12 @@ import dev.boysnberries.projectretrospection.R
 import dev.boysnberries.projectretrospection.data.Tracker
 
 // TODO: trackers should be a list of some 'Tracker' type
-class TrackerAdapter(private val trackers: List<Tracker>) : RecyclerView.Adapter<TrackerAdapter.ViewHolder>() {
-
+class TrackerAdapter(private val trackers: List<Tracker>, val onClickCallback: (View) -> Unit) : RecyclerView.Adapter<TrackerAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater
             .from(parent.context)
             .inflate(R.layout.item_tracker, parent, false)
-        return ViewHolder(view)
+        return ViewHolder(view, onClickCallback)
     }
 
     override fun getItemCount(): Int {
@@ -27,8 +26,17 @@ class TrackerAdapter(private val trackers: List<Tracker>) : RecyclerView.Adapter
         holder.trackerName.text = trackers[position].name
     }
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(itemView: View, onClickCallback: (View) -> Unit) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         // TODO: I don't quite understand this warning but I'm sure it's important
         val trackerName = itemView.findViewById<TextView>(R.id.text_tracker_name)
+        private val onClickCallback: (View) -> Unit = onClickCallback
+
+        init {
+            itemView.setOnClickListener(this)
+        }
+
+        override fun onClick(v: View) {
+            this.onClickCallback(v)
+        }
     }
 }
