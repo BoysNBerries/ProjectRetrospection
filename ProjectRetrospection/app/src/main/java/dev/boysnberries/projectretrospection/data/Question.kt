@@ -1,14 +1,14 @@
 package dev.boysnberries.projectretrospection.data
 
 import java.io.Serializable
-import java.util.*
+import java.util.Date
 
 /**
- * Created by John on 6/17/2018.
+ * Created by John on 6/18/2018.
  */
-data class Tracker (
+data class Question (
         val id: Int,
-        val name: String,
+        val title: String,
         val description: String,
         val createdDate: Date,
         val updatedDate: Date
