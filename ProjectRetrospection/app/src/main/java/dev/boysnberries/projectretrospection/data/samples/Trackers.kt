@@ -7,7 +7,7 @@ import java.util.*
  * Created by John on 6/17/2018.
  */
 
-fun getProducts() = listOf(
+fun getTrackers() = listOf(
         Tracker(
                1,
                "John's Hat Quest",

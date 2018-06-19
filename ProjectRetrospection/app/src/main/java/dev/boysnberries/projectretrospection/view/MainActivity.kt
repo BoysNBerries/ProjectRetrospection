@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.widget.LinearLayout
 import dev.boysnberries.projectretrospection.R
+import dev.boysnberries.projectretrospection.data.samples.getTrackers
 
 class MainActivity : Activity() {
 
@@ -17,14 +18,7 @@ class MainActivity : Activity() {
         trackersView.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
 
         // TODO: get actual trackers
-        val trackers = listOf(
-                "Tracker One",
-                "Tracker Two",
-                "Tracker Three",
-                "Tracker Four",
-                "Tracker Five",
-                "Tracker Six"
-        )
+        val trackers = getTrackers()
 
         trackersView.adapter = TrackerAdapter(trackers=trackers)
     }
