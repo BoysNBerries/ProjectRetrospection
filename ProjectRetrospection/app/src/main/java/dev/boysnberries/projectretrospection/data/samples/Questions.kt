@@ -1,7 +1,8 @@
 package dev.boysnberries.projectretrospection.data.samples
 
-import dev.boysnberries.projectretrospection.data.Question
-import java.util.Date;
+import dev.boysnberries.projectretrospection.data.database.entity.Question
+import dev.boysnberries.projectretrospection.data.database.entity.QuestionType
+import dev.boysnberries.projectretrospection.data.database.entity.Tracker
 
 /**
  * Created by John on 6/18/2018.
@@ -9,23 +10,23 @@ import java.util.Date;
 fun getQuestions() = listOf(
         Question(
                1,
-               "Wearing hat or not?",
+                Tracker(),
+                QuestionType(1, "bool"),
                "Was I wearing a hat at the time the person decided to sit next to me?",
-                Date(2017, 6, 30),
-                Date(2017, 8, 20)
+                1
         ),
         Question(
                 2,
-                "Was I wet?",
-                "Was it raining outside recently, making me wet and unpleasant to sit by?",
-                Date(2017, 6, 31),
-                Date(2017, 6, 31)
+                Tracker(),
+                QuestionType(1, "bool"),
+                "Was I wet from the rain?",
+                3
         ),
         Question(
                 3,
-                "Time of day",
+                Tracker(),
+                QuestionType(2, "categorical"),
                 "What time of day was it?",
-                Date(2017, 6, 30),
-                Date(2017, 6, 30)
+               2
         )
 )

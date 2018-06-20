@@ -6,9 +6,8 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.widget.LinearLayout
 import dev.boysnberries.projectretrospection.R
-import dev.boysnberries.projectretrospection.data.Question
+import dev.boysnberries.projectretrospection.data.database.entity.Question
 import dev.boysnberries.projectretrospection.data.samples.getQuestions
-import dev.boysnberries.projectretrospection.data.samples.getTrackers
 
 // TODO: This is also copy & paste programming
 // It should also be abstracted. The notion should be something like a card view.
