@@ -8,7 +8,7 @@ import android.support.v7.widget.RecyclerView
 import android.widget.LinearLayout
 import com.jakewharton.threetenabp.AndroidThreeTen
 import dev.boysnberries.projectretrospection.R
-import dev.boysnberries.projectretrospection.data.Tracker
+import dev.boysnberries.projectretrospection.data.database.entity.Tracker
 import dev.boysnberries.projectretrospection.data.samples.getTrackers
 
 class MainActivity : Activity() {

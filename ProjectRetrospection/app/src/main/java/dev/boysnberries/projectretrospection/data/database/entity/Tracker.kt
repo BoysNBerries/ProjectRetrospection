@@ -5,7 +5,7 @@ package dev.boysnberries.projectretrospection.data.database.entity
 
 import android.arch.persistence.room.*
 import org.threeten.bp.OffsetDateTime
-import org.threeten.bp.ZoneOffset
+import java.io.Serializable
 
 
 @Entity(tableName = "trackers")
@@ -16,7 +16,7 @@ data class Tracker(
         @ColumnInfo(name = "created_dts") val createdDTS: OffsetDateTime,
         @ColumnInfo(name = "updated_dts") val updatedDTS: OffsetDateTime,
         @ColumnInfo(name = "rank") val rank: Int
-) {
+) : Serializable {
     constructor() : this(
             null,
             "",

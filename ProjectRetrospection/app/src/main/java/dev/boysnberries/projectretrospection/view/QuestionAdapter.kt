@@ -6,8 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import dev.boysnberries.projectretrospection.R
-import dev.boysnberries.projectretrospection.data.Question
-import dev.boysnberries.projectretrospection.data.Tracker
+import dev.boysnberries.projectretrospection.data.database.entity.Question
 
 // TODO: This is copy & paste programming from TrackerAdapter.kt
 //      We should find a meaningful abstraction for our adapters.
@@ -23,10 +22,10 @@ class QuestionAdapter(private val questions: List<Question>) : RecyclerView.Adap
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.questionName.text = questions[position].title
+        holder.questionText.text = questions[position].questionText
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val questionName = itemView.findViewById<TextView>(R.id.text_question_name)
+        val questionText = itemView.findViewById<TextView>(R.id.text_question_text)
     }
 }

@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import dev.boysnberries.projectretrospection.R
-import dev.boysnberries.projectretrospection.data.Tracker
+import dev.boysnberries.projectretrospection.data.database.entity.Tracker
 
 class TrackerAdapter(private val trackers: List<Tracker>, val onClickCallback: (View) -> Unit) : RecyclerView.Adapter<TrackerAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -21,13 +21,13 @@ class TrackerAdapter(private val trackers: List<Tracker>, val onClickCallback: (
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.trackerName.text = trackers[position].name
+        holder.trackerTitle.text = trackers[position].title
         holder.trackerDescription.text = trackers[position].description
     }
 
     class ViewHolder(itemView: View, onClickCallback: (View) -> Unit) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         // TODO: I don't quite understand this warning but I'm sure it's important
-        val trackerName = itemView.findViewById<TextView>(R.id.text_tracker_name)
+        val trackerTitle = itemView.findViewById<TextView>(R.id.text_tracker_title)
         val trackerDescription = itemView.findViewById<TextView>(R.id.text_tracker_description)
         private val onClickCallback: (View) -> Unit = onClickCallback
 
