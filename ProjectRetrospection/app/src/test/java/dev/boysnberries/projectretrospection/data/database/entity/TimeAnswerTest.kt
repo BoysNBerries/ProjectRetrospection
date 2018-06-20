@@ -12,13 +12,13 @@ class TimeAnswerTest {
     }
 
     @Test
-    fun `class should define default question`() {
-        Assert.assertEquals(Question(), TimeAnswer().question)
+    fun `class should define default question id`() {
+        Assert.assertEquals(Long.MAX_VALUE, TimeAnswer().questionID)
     }
 
     @Test
-    fun `class should define default record`() {
-        Assert.assertEquals(Record(), TimeAnswer().record)
+    fun `class should define default record id`() {
+        Assert.assertEquals(Long.MAX_VALUE, TimeAnswer().recordID)
     }
 
     @Test

@@ -6,12 +6,25 @@ package dev.boysnberries.projectretrospection.data.database.entity
 import android.arch.persistence.room.*
 
 
-@Entity(tableName = "boolean_answers")
+@Entity(tableName = "boolean_answers", foreignKeys = [
+    ForeignKey(
+            entity = Record::class,
+            parentColumns = ["id"],
+            childColumns = ["recordID"],
+            onDelete = ForeignKey.NO_ACTION
+    ),
+    ForeignKey(
+            entity = Question::class,
+            parentColumns = ["id"],
+            childColumns = ["questionID"],
+            onDelete = ForeignKey.NO_ACTION
+    )
+])
 data class BooleanAnswer(
         @PrimaryKey(autoGenerate = true) val id: Long?,
-        @Embedded val record: Record,
-        @Embedded val question: Question,
+        val recordID: Long,
+        val questionID: Long,
         @ColumnInfo(name = "value") val value: Boolean
 ) {
-    constructor() : this(null, Record(), Question(), false)
+    constructor() : this(null, Long.MAX_VALUE, Long.MAX_VALUE, false)
 }

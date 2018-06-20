@@ -9,12 +9,12 @@ class CategoricalAnswerTest {
         Assert.assertNull(CategoricalAnswer().id)
     }
 
-    @Test fun `class should define default question`() {
-        Assert.assertEquals(Question(), CategoricalAnswer().question)
+    @Test fun `class should define default question id`() {
+        Assert.assertEquals(Long.MAX_VALUE, CategoricalAnswer().questionID)
     }
 
-    @Test fun `class should define default record`() {
-        Assert.assertEquals(Record(), CategoricalAnswer().record)
+    @Test fun `class should define default record id`() {
+        Assert.assertEquals(Long.MAX_VALUE, CategoricalAnswer().recordID)
     }
 
     @Test fun `class should define default value`() {

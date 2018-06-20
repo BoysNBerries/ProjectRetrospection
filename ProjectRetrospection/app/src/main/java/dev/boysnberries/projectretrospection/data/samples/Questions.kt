@@ -9,24 +9,24 @@ import dev.boysnberries.projectretrospection.data.database.entity.Tracker
  */
 fun getQuestions() = listOf(
         Question(
-               1,
-                Tracker(),
-                QuestionType(1, "bool"),
-               "Was I wearing a hat at the time the person decided to sit next to me?",
+                1,
+                0,
+                1,
+                "Was I wearing a hat at the time the person decided to sit next to me?",
                 1
         ),
         Question(
                 2,
-                Tracker(),
-                QuestionType(1, "bool"),
+                0,
+                1,
                 "Was I wet from the rain?",
                 3
         ),
         Question(
                 3,
-                Tracker(),
-                QuestionType(2, "categorical"),
+                0,
+                1,
                 "What time of day was it?",
-               2
+                2
         )
 )

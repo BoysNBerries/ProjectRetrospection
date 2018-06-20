@@ -10,8 +10,8 @@ class RecordTest {
         Assert.assertNull(Record().id)
     }
 
-    @Test fun `class should define default tracker`() {
-        Assert.assertEquals(Tracker(), Record().tracker)
+    @Test fun `class should define default tracker id`() {
+        Assert.assertEquals(Long.MAX_VALUE, Record().trackerID)
     }
 
     @Test fun `class should define default created DTS`() {

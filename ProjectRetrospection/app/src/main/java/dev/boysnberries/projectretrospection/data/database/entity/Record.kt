@@ -7,11 +7,18 @@ import android.arch.persistence.room.*
 import org.threeten.bp.OffsetDateTime
 
 
-@Entity(tableName = "records")
+@Entity(tableName = "records", foreignKeys = [
+    ForeignKey(
+            entity = Tracker::class,
+            parentColumns = ["id"],
+            childColumns = ["trackerID"],
+            onDelete = ForeignKey.NO_ACTION
+    )
+])
 data class Record(
         @PrimaryKey(autoGenerate = true) val id: Long?,
-        @Embedded val tracker: Tracker,
+        val trackerID: Long,
         @ColumnInfo(name = "creation_dts") val createdDTS: OffsetDateTime
 ) {
-    constructor() : this(null, Tracker(), OffsetDateTime.MIN)
+    constructor() : this(null, Long.MAX_VALUE, OffsetDateTime.MIN)
 }
