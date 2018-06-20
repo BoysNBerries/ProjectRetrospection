@@ -9,12 +9,12 @@ class NumericAnswerTest {
         Assert.assertNull(NumericAnswer().id)
     }
 
-    @Test fun `class should define default question`() {
-        Assert.assertEquals(Question(), NumericAnswer().question)
+    @Test fun `class should define default question id`() {
+        Assert.assertEquals(Long.MAX_VALUE, NumericAnswer().questionID)
     }
 
-    @Test fun `class should define default record`() {
-        Assert.assertEquals(Record(), NumericAnswer().record)
+    @Test fun `class should define default record id`() {
+        Assert.assertEquals(Long.MAX_VALUE, NumericAnswer().recordID)
     }
 
     @Test fun `class should define default value`() {

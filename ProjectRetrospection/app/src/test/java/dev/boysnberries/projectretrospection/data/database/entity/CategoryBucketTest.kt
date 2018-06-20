@@ -9,8 +9,8 @@ class CategoryBucketTest {
         Assert.assertNull(CategoryBucket().id)
     }
 
-    @Test fun `class should define default question`() {
-        Assert.assertEquals(Question(), CategoryBucket().question)
+    @Test fun `class should define default question id`() {
+        Assert.assertEquals(Long.MAX_VALUE, CategoryBucket().questionID)
     }
 
     @Test fun `class should define default allowed value`() {
