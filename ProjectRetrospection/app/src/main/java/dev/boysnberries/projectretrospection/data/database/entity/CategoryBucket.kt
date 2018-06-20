@@ -10,13 +10,13 @@ import android.arch.persistence.room.*
     ForeignKey(
             entity = Question::class,
             parentColumns = ["id"],
-            childColumns = ["questionID"],
+            childColumns = ["question_id"],
             onDelete = ForeignKey.NO_ACTION
     )
 ])
 data class CategoryBucket(
         @PrimaryKey(autoGenerate = true) val id: Long?,
-        val questionID: Long,
+        @ColumnInfo(name = "question_id") val questionID: Long,
         @ColumnInfo(name = "allowed_value") val allowedValue: String,
         @ColumnInfo(name = "rank") val rank: Int?
 ) {

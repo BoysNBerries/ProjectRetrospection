@@ -11,20 +11,20 @@ import java.io.Serializable
     ForeignKey(
             entity = Tracker::class,
             parentColumns = ["id"],
-            childColumns = ["trackerID"],
+            childColumns = ["tracker_id"],
             onDelete = ForeignKey.NO_ACTION
     ),
     ForeignKey(
             entity = QuestionType::class,
             parentColumns = ["id"],
-            childColumns = ["questionTypeID"],
+            childColumns = ["question_type_id"],
             onDelete = ForeignKey.NO_ACTION
     )
 ])
 data class Question(
         @PrimaryKey(autoGenerate = true) val id: Long?,
-        val trackerID: Long,
-        val questionTypeID: Long,
+        @ColumnInfo(name = "tracker_id") val trackerID: Long,
+        @ColumnInfo(name = "question_type_id") val questionTypeID: Long,
         @ColumnInfo(name = "question_text") val questionText: String,
         @ColumnInfo(name = "rank") val rank: Int
 ) : Serializable {
