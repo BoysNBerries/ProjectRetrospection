@@ -10,11 +10,11 @@ import dev.boysnberries.projectretrospection.data.database.entity.Question
 
 // TODO: This is copy & paste programming from TrackerAdapter.kt
 //      We should find a meaningful abstraction for our adapters.
-class QuestionAdapter(private val questions: List<Question>) : RecyclerView.Adapter<QuestionAdapter.ViewHolder>() {
+class QuestionAdapter(private val questions: List<Question>, val onClickCallback: (View) -> Unit) : RecyclerView.Adapter<QuestionAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_question, parent, false)
-        return ViewHolder(view)
+        return ViewHolder(view, onClickCallback)
     }
 
     override fun getItemCount(): Int {
@@ -25,7 +25,15 @@ class QuestionAdapter(private val questions: List<Question>) : RecyclerView.Adap
         holder.questionText.text = questions[position].questionText
     }
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(itemView: View, private val onClickCallback: (View) -> Unit) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         val questionText = itemView.findViewById<TextView>(R.id.text_question_text)
+
+        init {
+            itemView.setOnClickListener(this)
+        }
+
+        override fun onClick(v: View) {
+            this.onClickCallback(v)
+        }
     }
 }
