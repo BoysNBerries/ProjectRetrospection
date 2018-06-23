@@ -32,6 +32,7 @@ class TrackerCreationActivity : Activity() {
     }
 
     private fun loadQuestions(): List<Question> {
+        /* todo: create singleton database class to get questions from */
         return getQuestions()
     }
 
