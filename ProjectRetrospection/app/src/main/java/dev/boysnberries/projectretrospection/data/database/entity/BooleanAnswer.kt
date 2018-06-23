@@ -10,21 +10,27 @@ import android.arch.persistence.room.*
     ForeignKey(
             entity = Record::class,
             parentColumns = ["id"],
-            childColumns = ["recordID"],
+            childColumns = ["record_id"],
             onDelete = ForeignKey.NO_ACTION
     ),
     ForeignKey(
             entity = Question::class,
             parentColumns = ["id"],
-            childColumns = ["questionID"],
+            childColumns = ["question_id"],
             onDelete = ForeignKey.NO_ACTION
     )
+], indices = [
+    Index(value = ["record_id", "question_id"], unique = true),
+    Index(value = ["question_id"]),
+    Index(value = ["record_id"])
 ])
 data class BooleanAnswer(
-        @PrimaryKey(autoGenerate = true) val id: Long?,
-        val recordID: Long,
-        val questionID: Long,
-        @ColumnInfo(name = "value") val value: Boolean
+        @PrimaryKey(autoGenerate = true) var id: Long?,
+        @ColumnInfo(name = "record_id") var recordID: Long,
+        @ColumnInfo(name = "question_id") var questionID: Long,
+        @ColumnInfo(name = "value") var value: Boolean
 ) {
-    constructor() : this(null, Long.MAX_VALUE, Long.MAX_VALUE, false)
+    companion object {
+        fun default() = BooleanAnswer(null, Long.MAX_VALUE, Long.MAX_VALUE, false)
+    }
 }

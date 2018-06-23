@@ -11,22 +11,27 @@ import java.io.Serializable
     ForeignKey(
             entity = Tracker::class,
             parentColumns = ["id"],
-            childColumns = ["trackerID"],
+            childColumns = ["tracker_id"],
             onDelete = ForeignKey.NO_ACTION
     ),
     ForeignKey(
             entity = QuestionType::class,
             parentColumns = ["id"],
-            childColumns = ["questionTypeID"],
+            childColumns = ["question_type_id"],
             onDelete = ForeignKey.NO_ACTION
     )
+], indices = [
+    Index(value = ["tracker_id"]),
+    Index(value = ["question_type_id"])
 ])
 data class Question(
-        @PrimaryKey(autoGenerate = true) val id: Long?,
-        val trackerID: Long,
-        val questionTypeID: Long,
-        @ColumnInfo(name = "question_text") val questionText: String,
-        @ColumnInfo(name = "rank") val rank: Int
+        @PrimaryKey(autoGenerate = true) var id: Long?,
+        @ColumnInfo(name = "tracker_id") var trackerID: Long,
+        @ColumnInfo(name = "question_type_id") var questionTypeID: Long,
+        @ColumnInfo(name = "question_text") var questionText: String,
+        @ColumnInfo(name = "rank") var rank: Int
 ) : Serializable {
-    constructor() : this(null, Long.MAX_VALUE, Long.MAX_VALUE, "", 0)
+    companion object {
+        fun default() = Question(null, Long.MAX_VALUE, Long.MAX_VALUE, "", 0)
+    }
 }

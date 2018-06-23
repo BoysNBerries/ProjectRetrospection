@@ -28,7 +28,8 @@ class MainActivity : Activity() {
         val trackersView = findViewById<RecyclerView>(R.id.recycler_trackers)
         trackersView.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
 
-        val trackers = getTrackers()
+        /* todo: create singleton database class to get trackers from */
+        val trackers = getTrackers(this)
 
         trackersView.adapter = TrackerAdapter(
                 trackers=trackers,

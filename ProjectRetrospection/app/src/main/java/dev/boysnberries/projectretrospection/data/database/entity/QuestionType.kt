@@ -7,10 +7,12 @@ import android.arch.persistence.room.*
 import java.io.Serializable
 
 
-@Entity(tableName = "question_types")
+@Entity(tableName = "question_types", indices = [Index(value = ["tag"], unique = true)])
 data class QuestionType(
-        @PrimaryKey(autoGenerate = true) val id: Long?,
-        @ColumnInfo(name = "tag") val tag: String
+        @PrimaryKey(autoGenerate = true) var id: Long?,
+        @ColumnInfo(name = "tag") var tag: String
 ) : Serializable {
-    constructor() : this(null, "")
+    companion object {
+        fun default() = QuestionType(null, "")
+    }
 }

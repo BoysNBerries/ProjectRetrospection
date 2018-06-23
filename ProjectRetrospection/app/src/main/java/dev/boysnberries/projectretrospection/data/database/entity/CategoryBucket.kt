@@ -10,15 +10,19 @@ import android.arch.persistence.room.*
     ForeignKey(
             entity = Question::class,
             parentColumns = ["id"],
-            childColumns = ["questionID"],
+            childColumns = ["question_id"],
             onDelete = ForeignKey.NO_ACTION
     )
+], indices = [
+    Index(value = ["question_id"])
 ])
 data class CategoryBucket(
-        @PrimaryKey(autoGenerate = true) val id: Long?,
-        val questionID: Long,
-        @ColumnInfo(name = "allowed_value") val allowedValue: String,
-        @ColumnInfo(name = "rank") val rank: Int?
+        @PrimaryKey(autoGenerate = true) var id: Long?,
+        @ColumnInfo(name = "question_id") var questionID: Long,
+        @ColumnInfo(name = "allowed_value") var allowedValue: String,
+        @ColumnInfo(name = "rank") var rank: Int?
 ) {
-    constructor() : this(null, Long.MAX_VALUE, "", null)
+    companion object {
+        fun default() = CategoryBucket(null, Long.MAX_VALUE, "", null)
+    }
 }

@@ -11,14 +11,18 @@ import org.threeten.bp.OffsetDateTime
     ForeignKey(
             entity = Tracker::class,
             parentColumns = ["id"],
-            childColumns = ["trackerID"],
+            childColumns = ["tracker_id"],
             onDelete = ForeignKey.NO_ACTION
     )
+], indices = [
+    Index(value = ["tracker_id"])
 ])
 data class Record(
-        @PrimaryKey(autoGenerate = true) val id: Long?,
-        val trackerID: Long,
-        @ColumnInfo(name = "creation_dts") val createdDTS: OffsetDateTime
+        @PrimaryKey(autoGenerate = true) var id: Long?,
+        @ColumnInfo(name = "tracker_id") var trackerID: Long,
+        @ColumnInfo(name = "creation_dts") var createdDTS: OffsetDateTime
 ) {
-    constructor() : this(null, Long.MAX_VALUE, OffsetDateTime.MIN)
+    companion object {
+        fun default() = Record(null, Long.MAX_VALUE, OffsetDateTime.MIN)
+    }
 }
