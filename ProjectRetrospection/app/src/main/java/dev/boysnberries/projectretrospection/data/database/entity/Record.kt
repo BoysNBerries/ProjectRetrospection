@@ -18,9 +18,9 @@ import org.threeten.bp.OffsetDateTime
     Index(value = ["tracker_id"])
 ])
 data class Record(
-        @PrimaryKey(autoGenerate = true) val id: Long?,
-        @ColumnInfo(name = "tracker_id") val trackerID: Long,
-        @ColumnInfo(name = "creation_dts") val createdDTS: OffsetDateTime
+        @PrimaryKey(autoGenerate = true) var id: Long?,
+        @ColumnInfo(name = "tracker_id") var trackerID: Long,
+        @ColumnInfo(name = "creation_dts") var createdDTS: OffsetDateTime
 ) {
     constructor() : this(null, Long.MAX_VALUE, OffsetDateTime.MIN)
 }

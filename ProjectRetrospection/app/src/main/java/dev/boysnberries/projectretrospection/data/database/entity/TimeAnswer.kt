@@ -27,10 +27,10 @@ import org.threeten.bp.ZoneOffset
     Index(value = ["record_id"])
 ])
 data class TimeAnswer(
-        @PrimaryKey(autoGenerate = true) val id: Long?,
-        @ColumnInfo(name = "record_id") val recordID: Long,
-        @ColumnInfo(name = "question_id") val questionID: Long,
-        @ColumnInfo(name = "value") val value: OffsetDateTime
+        @PrimaryKey(autoGenerate = true) var id: Long?,
+        @ColumnInfo(name = "record_id") var recordID: Long,
+        @ColumnInfo(name = "question_id") var questionID: Long,
+        @ColumnInfo(name = "value") var value: OffsetDateTime
 ) {
     constructor() : this(null, Long.MAX_VALUE, Long.MAX_VALUE, OffsetDateTime.MIN)
 }

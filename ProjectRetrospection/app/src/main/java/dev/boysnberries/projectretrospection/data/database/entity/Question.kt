@@ -25,11 +25,11 @@ import java.io.Serializable
     Index(value = ["question_type_id"])
 ])
 data class Question(
-        @PrimaryKey(autoGenerate = true) val id: Long?,
-        @ColumnInfo(name = "tracker_id") val trackerID: Long,
-        @ColumnInfo(name = "question_type_id") val questionTypeID: Long,
-        @ColumnInfo(name = "question_text") val questionText: String,
-        @ColumnInfo(name = "rank") val rank: Int
+        @PrimaryKey(autoGenerate = true) var id: Long?,
+        @ColumnInfo(name = "tracker_id") var trackerID: Long,
+        @ColumnInfo(name = "question_type_id") var questionTypeID: Long,
+        @ColumnInfo(name = "question_text") var questionText: String,
+        @ColumnInfo(name = "rank") var rank: Int
 ) : Serializable {
     constructor() : this(null, Long.MAX_VALUE, Long.MAX_VALUE, "", 0)
 }

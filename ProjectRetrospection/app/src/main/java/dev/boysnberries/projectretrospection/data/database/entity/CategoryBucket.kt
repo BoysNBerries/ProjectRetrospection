@@ -17,10 +17,10 @@ import android.arch.persistence.room.*
     Index(value = ["question_id"])
 ])
 data class CategoryBucket(
-        @PrimaryKey(autoGenerate = true) val id: Long?,
-        @ColumnInfo(name = "question_id") val questionID: Long,
-        @ColumnInfo(name = "allowed_value") val allowedValue: String,
-        @ColumnInfo(name = "rank") val rank: Int?
+        @PrimaryKey(autoGenerate = true) var id: Long?,
+        @ColumnInfo(name = "question_id") var questionID: Long,
+        @ColumnInfo(name = "allowed_value") var allowedValue: String,
+        @ColumnInfo(name = "rank") var rank: Int?
 ) {
     constructor() : this(null, Long.MAX_VALUE, "", null)
 }
