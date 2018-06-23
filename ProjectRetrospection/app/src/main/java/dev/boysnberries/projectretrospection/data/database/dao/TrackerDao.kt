@@ -9,8 +9,8 @@ import dev.boysnberries.projectretrospection.data.database.entity.Tracker
 @Dao
 interface TrackerDao {
     @Query("select * from trackers")
-    fun getAll()
+    fun getAll(): List<Tracker>
 
     @Insert(onConflict = OnConflictStrategy.ABORT)
-    fun insert(tracker: Tracker)
+    fun insert(tracker: Tracker): Long
 }

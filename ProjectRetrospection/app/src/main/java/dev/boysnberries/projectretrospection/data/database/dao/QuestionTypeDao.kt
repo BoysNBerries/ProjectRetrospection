@@ -9,8 +9,8 @@ import dev.boysnberries.projectretrospection.data.database.entity.QuestionType
 @Dao
 interface QuestionTypeDao {
     @Query("select * from question_types")
-    fun getAll()
+    fun getAll(): List<QuestionType>
 
     @Insert(onConflict = OnConflictStrategy.ABORT)
-    fun insert(questionType: QuestionType)
+    fun insert(questionType: QuestionType): Long
 }

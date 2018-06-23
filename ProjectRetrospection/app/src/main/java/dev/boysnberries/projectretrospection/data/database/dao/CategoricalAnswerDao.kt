@@ -9,17 +9,17 @@ import dev.boysnberries.projectretrospection.data.database.entity.CategoricalAns
 @Dao
 interface CategoricalAnswerDao {
     @Query("select * from categorical_answers")
-    fun getAll()
+    fun getAll(): List<CategoricalAnswer>
 
     @Query("select * from categorical_answers where record_id = :recordID")
-    fun getByRecordID(recordID: Long)
+    fun getByRecordID(recordID: Long): List<CategoricalAnswer>
 
     @Query("select * from categorical_answers where question_id = :questionID")
-    fun getByQuestionID(questionID: Long)
+    fun getByQuestionID(questionID: Long): List<CategoricalAnswer>
 
     @Query("select * from categorical_answers where record_id = :recordID and question_id = :questionID")
-    fun getByRecordIDAndQuestionID(recordID: Long, questionID: Long)
+    fun getByRecordIDAndQuestionID(recordID: Long, questionID: Long): List<CategoricalAnswer>
 
     @Insert(onConflict = OnConflictStrategy.ABORT)
-    fun insert(categoricalAnswer: CategoricalAnswer)
+    fun insert(categoricalAnswer: CategoricalAnswer): Long
 }

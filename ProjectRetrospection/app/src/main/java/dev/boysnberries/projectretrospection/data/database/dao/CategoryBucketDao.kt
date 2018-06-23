@@ -9,11 +9,11 @@ import dev.boysnberries.projectretrospection.data.database.entity.CategoryBucket
 @Dao
 interface CategoryBucketDao {
     @Query("select * from category_buckets")
-    fun getAll()
+    fun getAll(): List<CategoryBucket>
 
     @Query("select * from category_buckets where question_id = :questionID")
-    fun getByQuestionID(questionID: Long)
+    fun getByQuestionID(questionID: Long): List<CategoryBucket>
 
     @Insert(onConflict = OnConflictStrategy.ABORT)
-    fun insert(categoryBucket: CategoryBucket)
+    fun insert(categoryBucket: CategoryBucket): Long
 }

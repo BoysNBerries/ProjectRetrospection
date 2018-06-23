@@ -9,11 +9,11 @@ import dev.boysnberries.projectretrospection.data.database.entity.Record
 @Dao
 interface RecordDao {
     @Query("select * from records")
-    fun getAll()
+    fun getAll(): List<Record>
 
     @Query("select * from records where tracker_id = :trackerID")
-    fun getByTrackerID(trackerID: Long)
+    fun getByTrackerID(trackerID: Long): List<Record>
 
     @Insert(onConflict = OnConflictStrategy.ABORT)
-    fun insert(record: Record)
+    fun insert(record: Record): Long
 }
