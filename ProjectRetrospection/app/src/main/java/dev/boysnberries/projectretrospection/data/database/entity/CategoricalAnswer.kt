@@ -30,5 +30,7 @@ data class CategoricalAnswer(
         @ColumnInfo(name = "question_id") var questionID: Long,
         @ColumnInfo(name = "value") var value: String
 ) {
-    constructor() : this(null, Long.MAX_VALUE, Long.MAX_VALUE, "")
+    companion object {
+        fun default() = CategoricalAnswer(null, Long.MAX_VALUE, Long.MAX_VALUE, "")
+    }
 }

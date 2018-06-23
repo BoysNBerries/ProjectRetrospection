@@ -12,5 +12,7 @@ data class QuestionType(
         @PrimaryKey(autoGenerate = true) var id: Long?,
         @ColumnInfo(name = "tag") var tag: String
 ) : Serializable {
-    constructor() : this(null, "")
+    companion object {
+        fun default() = QuestionType(null, "")
+    }
 }

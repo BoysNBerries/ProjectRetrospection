@@ -8,21 +8,21 @@ import org.threeten.bp.OffsetDateTime
 class TimeAnswerTest {
     @Test
     fun `class should define default id`() {
-        Assert.assertNull(TimeAnswer().id)
+        Assert.assertNull(TimeAnswer.default().id)
     }
 
     @Test
     fun `class should define default question id`() {
-        Assert.assertEquals(Long.MAX_VALUE, TimeAnswer().questionID)
+        Assert.assertEquals(Long.MAX_VALUE, TimeAnswer.default().questionID)
     }
 
     @Test
     fun `class should define default record id`() {
-        Assert.assertEquals(Long.MAX_VALUE, TimeAnswer().recordID)
+        Assert.assertEquals(Long.MAX_VALUE, TimeAnswer.default().recordID)
     }
 
     @Test
     fun `class should define default value`() {
-        Assert.assertEquals(OffsetDateTime.MIN, TimeAnswer().value)
+        Assert.assertEquals(OffsetDateTime.MIN, TimeAnswer.default().value)
     }
 }

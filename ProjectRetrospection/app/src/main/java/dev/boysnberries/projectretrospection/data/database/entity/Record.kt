@@ -22,5 +22,7 @@ data class Record(
         @ColumnInfo(name = "tracker_id") var trackerID: Long,
         @ColumnInfo(name = "creation_dts") var createdDTS: OffsetDateTime
 ) {
-    constructor() : this(null, Long.MAX_VALUE, OffsetDateTime.MIN)
+    companion object {
+        fun default() = Record(null, Long.MAX_VALUE, OffsetDateTime.MIN)
+    }
 }

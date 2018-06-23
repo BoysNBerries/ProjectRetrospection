@@ -22,5 +22,7 @@ data class CategoryBucket(
         @ColumnInfo(name = "allowed_value") var allowedValue: String,
         @ColumnInfo(name = "rank") var rank: Int?
 ) {
-    constructor() : this(null, Long.MAX_VALUE, "", null)
+    companion object {
+        fun default() = CategoryBucket(null, Long.MAX_VALUE, "", null)
+    }
 }

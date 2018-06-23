@@ -31,5 +31,7 @@ data class Question(
         @ColumnInfo(name = "question_text") var questionText: String,
         @ColumnInfo(name = "rank") var rank: Int
 ) : Serializable {
-    constructor() : this(null, Long.MAX_VALUE, Long.MAX_VALUE, "", 0)
+    companion object {
+        fun default() = Question(null, Long.MAX_VALUE, Long.MAX_VALUE, "", 0)
+    }
 }

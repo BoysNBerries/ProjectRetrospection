@@ -17,12 +17,14 @@ data class Tracker(
         @ColumnInfo(name = "updated_dts") var updatedDTS: OffsetDateTime,
         @ColumnInfo(name = "rank") var rank: Int
 ) : Serializable {
-    constructor() : this(
-            null,
-            "",
-            "",
-            OffsetDateTime.MIN,
-            OffsetDateTime.MIN,
-            0
-    )
+    companion object {
+        fun default() = Tracker(
+                null,
+                "",
+                "",
+                OffsetDateTime.MIN,
+                OffsetDateTime.MIN,
+                0
+        )
+    }
 }

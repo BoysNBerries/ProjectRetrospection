@@ -30,5 +30,7 @@ data class BooleanAnswer(
         @ColumnInfo(name = "question_id") var questionID: Long,
         @ColumnInfo(name = "value") var value: Boolean
 ) {
-    constructor() : this(null, Long.MAX_VALUE, Long.MAX_VALUE, false)
+    companion object {
+        fun default() = BooleanAnswer(null, Long.MAX_VALUE, Long.MAX_VALUE, false)
+    }
 }

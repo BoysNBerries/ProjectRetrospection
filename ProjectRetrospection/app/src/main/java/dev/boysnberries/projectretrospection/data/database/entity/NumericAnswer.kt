@@ -30,5 +30,7 @@ data class NumericAnswer(
         @ColumnInfo(name = "question_id") var questionID: Long,
         @ColumnInfo(name = "value") var value: Float
 ) {
-    constructor() : this(null, Long.MAX_VALUE, Long.MAX_VALUE, 0)
+    companion object {
+        fun default() = NumericAnswer(null, Long.MAX_VALUE, Long.MAX_VALUE, 0.0f)
+    }
 }

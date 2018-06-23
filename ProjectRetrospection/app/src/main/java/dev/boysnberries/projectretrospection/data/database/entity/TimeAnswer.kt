@@ -32,5 +32,7 @@ data class TimeAnswer(
         @ColumnInfo(name = "question_id") var questionID: Long,
         @ColumnInfo(name = "value") var value: OffsetDateTime
 ) {
-    constructor() : this(null, Long.MAX_VALUE, Long.MAX_VALUE, OffsetDateTime.MIN)
+    companion object {
+        fun default() = TimeAnswer(null, Long.MAX_VALUE, Long.MAX_VALUE, OffsetDateTime.MIN)
+    }
 }

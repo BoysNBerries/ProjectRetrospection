@@ -6,18 +6,18 @@ import org.junit.Test
 
 class BooleanAnswerTest {
     @Test fun `class should define default id`() {
-        Assert.assertNull(BooleanAnswer().id)
+        Assert.assertNull(BooleanAnswer.default().id)
     }
 
     @Test fun `class should define default question id`() {
-        Assert.assertEquals(Long.MAX_VALUE, BooleanAnswer().questionID)
+        Assert.assertEquals(Long.MAX_VALUE, BooleanAnswer.default().questionID)
     }
 
     @Test fun `class should define default record id`() {
-        Assert.assertEquals(Long.MAX_VALUE, BooleanAnswer().recordID)
+        Assert.assertEquals(Long.MAX_VALUE, BooleanAnswer.default().recordID)
     }
 
     @Test fun `class should define default value`() {
-        Assert.assertFalse(BooleanAnswer().value)
+        Assert.assertFalse(BooleanAnswer.default().value)
     }
 }
