@@ -1,5 +1,7 @@
 package dev.boysnberries.projectretrospection.data.samples
 
+import android.content.Context
+import dev.boysnberries.projectretrospection.data.database.RetrospectionDatabase
 import dev.boysnberries.projectretrospection.data.database.entity.Tracker
 import org.threeten.bp.OffsetDateTime
 import java.util.*
@@ -8,7 +10,7 @@ import java.util.*
  * Created by John on 6/17/2018.
  */
 
-fun getTrackers() = listOf(
+fun _getTrackers() = listOf(
         Tracker(
                1,
                "John's Hat Quest",
@@ -34,3 +36,5 @@ fun getTrackers() = listOf(
                 3
         )
 )
+
+fun getTrackers(context: Context) = getSampleDatabase(context).trackerDao().getAll()
