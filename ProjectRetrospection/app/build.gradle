@@ -12,6 +12,7 @@ android {
         applicationId "dev.boysnberries.projectretrospection"
         minSdkVersion 15
         targetSdkVersion 28
+        multiDexEnabled true
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -33,6 +34,7 @@ dependencies {
     implementation "android.arch.persistence.room:runtime:1.1.0"
     implementation 'com.jakewharton.threetenabp:threetenabp:1.1.0'
     implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    implementation 'com.android.support:multidex:1.0.3'
     testImplementation 'junit:junit:4.12'
     testImplementation 'io.mockk:mockk:1.8.3'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
