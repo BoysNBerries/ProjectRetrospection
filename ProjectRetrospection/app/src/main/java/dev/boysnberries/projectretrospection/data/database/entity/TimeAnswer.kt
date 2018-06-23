@@ -21,6 +21,10 @@ import org.threeten.bp.ZoneOffset
             childColumns = ["question_id"],
             onDelete = ForeignKey.NO_ACTION
     )
+], indices = [
+    Index(value = ["record_id", "question_id"], unique = true),
+    Index(value = ["question_id"]),
+    Index(value = ["record_id"])
 ])
 data class TimeAnswer(
         @PrimaryKey(autoGenerate = true) val id: Long?,

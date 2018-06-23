@@ -14,6 +14,8 @@ import org.threeten.bp.OffsetDateTime
             childColumns = ["tracker_id"],
             onDelete = ForeignKey.NO_ACTION
     )
+], indices = [
+    Index(value = ["tracker_id"])
 ])
 data class Record(
         @PrimaryKey(autoGenerate = true) val id: Long?,

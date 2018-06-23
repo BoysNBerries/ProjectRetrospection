@@ -19,6 +19,10 @@ import android.arch.persistence.room.*
             childColumns = ["question_id"],
             onDelete = ForeignKey.NO_ACTION
     )
+], indices = [
+    Index(value = ["record_id", "question_id"], unique = true),
+    Index(value = ["question_id"]),
+    Index(value = ["record_id"])
 ])
 data class CategoricalAnswer(
         @PrimaryKey(autoGenerate = true) val id: Long?,

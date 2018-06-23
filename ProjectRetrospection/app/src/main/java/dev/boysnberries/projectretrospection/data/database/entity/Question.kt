@@ -20,6 +20,9 @@ import java.io.Serializable
             childColumns = ["question_type_id"],
             onDelete = ForeignKey.NO_ACTION
     )
+], indices = [
+    Index(value = ["tracker_id"]),
+    Index(value = ["question_type_id"])
 ])
 data class Question(
         @PrimaryKey(autoGenerate = true) val id: Long?,

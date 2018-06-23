@@ -13,6 +13,8 @@ import android.arch.persistence.room.*
             childColumns = ["question_id"],
             onDelete = ForeignKey.NO_ACTION
     )
+], indices = [
+    Index(value = ["question_id"])
 ])
 data class CategoryBucket(
         @PrimaryKey(autoGenerate = true) val id: Long?,
