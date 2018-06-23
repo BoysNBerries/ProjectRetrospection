@@ -5,7 +5,6 @@ package dev.boysnberries.projectretrospection.data.database.entity
 
 import android.arch.persistence.room.*
 import org.threeten.bp.OffsetDateTime
-import org.threeten.bp.ZoneOffset
 
 
 @Entity(tableName = "time_answers", foreignKeys = [
